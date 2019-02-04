@@ -1,0 +1,28 @@
+<apex:page controller="Accountselectcontroller2">
+    <apex:form >
+    	<apex:pageblock title="display of list with checkboxes">
+            <apex:pageBlockButtons title="select" location="top">
+            	<apex:commandButton value="selecy" action="{!selected}" reRender="t2" />
+				            
+            </apex:pageBlockButtons>
+        	<apex:pageblocksection > 
+               <apex:pageblocktable value="{!wa}" var="w">
+                <apex:column value="{!w.acc.name}"/>
+                <apex:column value="{!w.acc.phone}"/>
+                <apex:column value="{!w.acc.id}"/> 
+                <apex:column >
+                    <apex:inputCheckbox value="{!w.selected}"/>
+                </apex:column>
+            </apex:pageblocktable>
+                <apex:pageblocktable value="{!selectedaccounts}" var="s" id="t2">
+                	<apex:column value="{!s.name}"/>
+                    <apex:column value="{!s.phone}"/>
+                    <apex:column value="{!s.id}"/>
+                    
+					                
+                </apex:pageblocktable>
+            </apex:pageblocksection>
+        </apex:pageblock>
+        
+    </apex:form>
+</apex:page>
